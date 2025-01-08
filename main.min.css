@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "AXIS Font Latin W04", "Hiragino Kaku Gothic Pro", Arial, sans-serif;
+    background: #111;
+    overflow: hidden; /* Prevent scrolling */
+    padding: 0;
+    margin: 0;
+    height: 100vh; /* Viewport height */
+    width: 100vw; /* Viewport width */
+    display: flex; /* Optional: aligns logo easily if needed */
+}
+
+#logo {
+    position: absolute; /* Position relative to viewport */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 200px; /* Fixed width, adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Prevent overflowing width */
+    max-height: 100%; /* Prevent overflowing height */
+}
+
+#interface {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    transition: opacity 0.4s ease-in-out;
+    opacity: 0;
+}
+
+#interface.visible {
+    opacity: 1;
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+#shoplink {
+    position: absolute;
+    top: 2vmax;
+    right: 2vmax;
+    text-align: center;
+    color: #fff;
+    font-size: 1.2vmax;
+}
+
+@media only screen and (max-width: 600px) {
+    #shoplink {
+        font-size: 1.5vmax;
+    }
+}
+
+#shoplink a {
+    background-color: #fff;
+    color: #111;
+    padding: 1.2vmax 2vmax;
+    border-radius: 500px;
+    text-decoration: none;
+    scale: 1;
+    transition: scale 0.25s ease-out;
+}
+
+#shoplink a:hover {
+    scale: 1.1;
+}
+
+#shoplink img {
+    animation: rotating 2s linear infinite;
+    height: 100%;
+    width: 100%;
+}
